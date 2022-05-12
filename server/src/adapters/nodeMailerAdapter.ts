@@ -1,14 +1,16 @@
 import nodemailer from 'nodemailer';
 import { IEmailAdapter, SendMailData } from "./mail/ImailAdapter";
+require('dotenv').config();
 
-const transport = nodemailer.createTransport({
-  host: "",
-  port: 0,
+const mailConfig = { 
+  host: process.env.MAIL_HOST || "",
+  port: parseInt(process.env.MAIL_PORT || "") ,
   auth: {
-    user: "",
-    pass: ""
+    user: process.env.MAIL_USER || "",
+    pass: process.env.MAIL_PASS || ""
   }
-});
+}
+const transport = nodemailer.createTransport(mailConfig);
 
 export class NodeMailerAdapter implements IEmailAdapter {
   async sendMail({ subject, body }: SendMailData) : Promise<void> {
