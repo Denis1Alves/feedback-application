@@ -2,11 +2,11 @@ import nodemailer from 'nodemailer';
 import { IEmailAdapter, SendMailData } from "./mail/ImailAdapter";
 
 const transport = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
+  host: "",
+  port: 0,
   auth: {
-    user: "523370c523b4f0",
-    pass: "a585cbf566b21a"
+    user: "",
+    pass: ""
   }
 });
 
@@ -14,7 +14,7 @@ export class NodeMailerAdapter implements IEmailAdapter {
   async sendMail({ subject, body }: SendMailData) : Promise<void> {
     await transport.sendMail({
       from: 'Equipe Feedget <oi@feedget.com>',
-      to: 'Denis Alves <denis.alves2010@bol.com.br>',
+      to: 'Denis Alves <seu.email@email.com>',
       subject,
       html: body,
     });
