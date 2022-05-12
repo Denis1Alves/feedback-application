@@ -11,7 +11,6 @@ Widget Web, Mobile and Back-end to send Feedback e-mail with screenshot. This ap
 - React Native
 - Typescript
 - Expo
-- Moti
 - React Native SVG
 - And more...
 
